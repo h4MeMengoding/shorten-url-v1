@@ -48,6 +48,7 @@ app.use(express.static("static"));
 app.use(passport.initialize());
 app.use(locals.isHTML);
 app.use(locals.config);
+app.use("/static", express.static(path.join(__dirname, "../static")));
 
 // template engine / serve html
 
