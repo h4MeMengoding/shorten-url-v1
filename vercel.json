@@ -1,6 +1,20 @@
 {
-    "rewrites": [
-      { "source": "/css/:path*", "destination": "/static/css/:path*" }
+    "version": 2,
+    "builds": [
+      {
+        "src": "server/server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": "/.*",
+        "dest": "server/server.js"
+      }
     ]
   }
   
